@@ -1,12 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from '../../components/header/header.component';
+import { packItems } from '../../data/packItems';
+
+import { OnInit, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-prompts-ia',
   standalone: true,
   imports: [CommonModule, HeaderComponent],
   templateUrl: './prompts-ia.component.html',
-  styleUrls: ['./prompts-ia.component.scss']
+  styleUrls: ['./prompts-ia.component1.scss', './prompts-ia.component2.scss'],
 })
-export class PromptsIAComponent {}
+
+export class PromptsIAComponent {
+  packItems = packItems;
+}
+

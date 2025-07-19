@@ -1,19 +1,100 @@
 <app-header></app-header>
 <section class="hero-section">
   <video autoplay muted muted="muted" loop playsinline class="hero-video">
-    <source src="assets/pages/home/bannerPrompts.mp4" type="video/mp4">
+    <source src="assets/pages/home/bannerPrompts.mp4" type="video/mp4" />
     Tu navegador no soporta el video.
   </video>
   <div class="hero-overlay">
     <h1>Transformá ideas en contenido viral con IA</h1>
-    <p>Aprendé a crear videos, imágenes y negocios digitales con inteligencia artificial. Sin límites.</p>
+    <p>
+      Aprendé a crear videos, imágenes y negocios digitales con inteligencia
+      artificial. Sin límites.
+    </p>
     <button class="btn-primary">Ver Infoproducto</button>
     <div class="scroll-indicator">
-      <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M10 16L19 25L28 16" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <svg
+        width="38"
+        height="38"
+        viewBox="0 0 38 38"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M10 16L19 25L28 16"
+          stroke="#fff"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
       </svg>
     </div>
   </div>
 </section>
+
+<!-- 🧠 Sección 2: ¿Qué es el Pack GaloDev? -->
+<section class="pack-section" aria-labelledby="pack-title" tabindex="-1">
+  <div class="pack-content">
+    <h2 id="pack-title">
+      ¿Qué incluye <span class="highlight">GaloPrompterIA</span>?
+    </h2>
+    <p class="pack-desc">
+      <strong
+        >El infoproducto <span class="highlight">GaloPrompterIA</span>:</strong
+      >
+      Guías completas con el paso a paso de cómo crear este contenido +
+      <b>200 videos IA</b> + <b>400 imágenes ultra-realistas</b> diseñadas para
+      emocionar, vender y generar impacto visual. ¡Todo lo que necesitas para
+      triunfar con inteligencia artificial!
+    </p>
+    <div
+      class="pack-carousel-fullwidth"
+      aria-label="Carrusel de beneficios"
+      role="region"
+    >
+      <div class="carousel-fade-left"></div>
+      <div class="carousel-fade-right"></div>
+      <ul class="pack-carousel" role="list">
+        <li
+          class="carousel-item"
+          role="listitem"
+          *ngFor="let item of packItems"
+        >
+          <figure class="carousel-img-wrapper">
+            <img [src]="item.img" [alt]="item.alt" loading="lazy" />
+            <figcaption class="carousel-desc">
+              <span>{{ item.desc }}</span>
+            </figcaption>
+          </figure>
+        </li>
+      </ul>
+    </div>
+    <div class="pack-sale-cta" role="region" aria-label="Oferta especial">
+      <div class="price-info">
+        <span class="old-price" aria-label="Precio anterior">US$29.99</span>
+        <span class="discount" aria-label="67 por ciento de descuento"
+          >67% OFF</span
+        >
+      </div>
+      <a
+        class="btn-sale"
+        href="https://www.hotmart.com/"
+        target="_blank"
+        rel="noopener"
+        aria-label="Comprar GaloPrompterIA por 9.99 dólares en Hotmart (se abre en nueva pestaña)"
+      >
+        <span class="price-now" aria-live="polite">COMPRA POR US$9.99</span>
+      </a>
+      <div class="cta-subtext">Precio especial por lanzamiento</div>
+    </div>
+    <!-- <nav class="pack-guides" aria-label="Incluye también">
+      <ul>
+        <li>Guías y ejemplos comerciales</li>
+        <li>Prompts listos para usar</li>
+        <li>Acceso a herramientas gratuitas como VEO3</li>
+      </ul>
+    </nav> -->
+  </div>
+</section>
+<!-- fin sección pack -->
 
 se vienen cositas :)...

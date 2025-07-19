@@ -1,0 +1,854 @@
+.hero-section {
+  position: relative;
+  height: 80vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: 0000004b; 
+  overflow-x: hidden;
+
+  .scroll-indicator {
+    position: absolute;
+    left: 50%;
+    bottom: 24px;
+    transform: translateX(-50%);
+    z-index: 5;
+    opacity: 0.85;
+    animation: bounce-down 1.7s infinite cubic-bezier(0.77, 0, 0.18, 1);
+    svg {
+      filter: drop-shadow(0 0 8px #000a);
+    }
+  }
+
+  @keyframes bounce-down {
+    0%,
+    100% {
+      transform: translateX(-50%) translateY(0);
+    }
+    40% {
+      transform: translateX(-50%) translateY(13px);
+    }
+    60% {
+      transform: translateX(-50%) translateY(7px);
+    }
+  }
+
+  .hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background: #10111a;
+    z-index: 0;
+    pointer-events: none;
+  }
+}
+
+// --- Sección Pack GaloDev ---
+.highlight {
+  position: relative;
+  display: inline-block;
+  z-index: 1;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0.12em;
+    width: 100%;
+    height: 0.6em;
+    background: linear-gradient(90deg, #00c6fbbb 0%, #1a2980bb 100%);
+    border-radius: 0.25em;
+    z-index: -1;
+    pointer-events: none;
+    transition: background 0.3s;
+  }
+}
+
+.pack-section {
+  background: linear-gradient(
+    120deg,
+    #07080d 0%, /* negro casi absoluto */
+    #10111a 50%, /* negro suave */
+    #11182a 90%, /* azul espacio oscuro */
+    #19213a 100% /* azul espacio profundo */
+  );
+  box-shadow: 0 12px 48px 0 #07080d77, 0 4px 36px #11182a55, 0 0 0 2px #00aaff33;
+  border-radius: 28px;
+  border: 1.5px solid #233b5e;
+  scroll-margin-top: 90px;
+  outline: none;
+  padding: 0 0 38px 0;
+  margin: 0 auto 54px auto;
+  overflow-x: hidden;
+
+  .pack-content {
+    border-radius: 22px;
+    padding: 18px 2vw 10px 2vw;
+    margin: 0 auto;
+    max-width: 760px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 22px;
+    text-align: center;
+    border-color: transparent !important;
+  }
+
+  .carousel-item {
+    background: linear-gradient(120deg, #1a2980 0%, #181d29 100%);
+    border-radius: 18px;
+    border: 1.5px solid #223c5a;
+    margin: 0 18px;
+    overflow-x: hidden;
+    border-color: transparent !important;
+  }
+
+  .carousel-img-wrapper {
+    background: linear-gradient(120deg, #101b2c 60%, #223c5a 100%);
+    border-radius: 18px;
+    box-shadow: 0 8px 32px 0 #00c6fb33, 0 2px 16px #000a;
+    overflow: hidden;
+  }
+
+  .btn-sale {
+    position: relative;
+    display: inline-block;
+    padding: 1.2rem 2.8rem;
+    font-size: 1.22rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    border-radius: 2.4rem;
+    border: none;
+    color: #fff;
+    background: linear-gradient(120deg, #0f2027 0%, #2c5364 40%, #00c6fb 100%);
+    box-shadow: 0 0 24px #00c6fb88, 0 4px 32px #1a2980cc;
+    cursor: pointer;
+    overflow: hidden;
+    z-index: 1;
+    transition: 
+      box-shadow 0.25s cubic-bezier(.4,2,.6,1),
+      transform 0.18s cubic-bezier(.4,2,.6,1),
+      background 0.25s cubic-bezier(.4,2,.6,1);
+  
+    // Glass/Neon border animado
+    &::before {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      background: linear-gradient(270deg, #00c6fb, #1a2980, #43cea2, #185a9d, #00c6fb);
+      background-size: 400% 400%;
+      animation: btn-neon 7s ease-in-out infinite;
+      z-index: 0;
+      opacity: 0.85;
+      filter: blur(4px);
+      pointer-events: none;
+    }
+  
+    // Partículas/estrellas sutiles
+    &::after {
+      content: '';
+      position: absolute;
+      left: 50%; top: 50%;
+      width: 170%; height: 170%;
+      pointer-events: none;
+      background: 
+        radial-gradient(circle, #fff8 0.5px, transparent 1.5px),
+        radial-gradient(circle, #16ccff79 1px, transparent 2px),
+        radial-gradient(circle, #43cea299 1px, transparent 2px);
+      background-size: 70px 70px, 90px 90px, 120px 120px;
+      background-position: 0 0, 30px 30px, 60px 60px;
+      z-index: 1;
+      opacity: 0.16;
+      animation: btn-stars 18s linear infinite;
+      border-radius: 2.4rem;
+      transform: translate(-50%, -50%);
+    }
+  
+    // Microinteracciones
+    &:hover, &:focus {
+      background: linear-gradient(100deg, #00c6fb 0%, #185a9d 100%);
+      box-shadow: 0 0 48px 10px #00c6fbcc, 0 4px 32px 0 #1a2980ee;
+      transform: translateY(-3px) scale(1.06) rotate(-1deg);
+      filter: drop-shadow(0 0 18px #00c6fb);
+      outline: none;
+    }
+    &:active {
+      transform: scale(0.97);
+      filter: brightness(1.1) drop-shadow(0 0 8px #185a9d);
+    }
+  
+    // El texto siempre por encima
+    > * {
+      position: relative;
+      z-index: 2;
+    }
+  }
+  
+  // Animaciones
+  @keyframes btn-neon {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  @keyframes btn-stars {
+    0% { background-position: 0 0, 30px 30px, 60px 60px; }
+    100% { background-position: 60px 60px, 120px 120px, 180px 180px; }
+  }
+
+  .pack-carousel-fullwidth {
+    overflow: hidden;
+    padding: 0 24px;
+    position: relative;
+    background: transparent;
+    box-shadow: none;
+    outline: none;
+  }
+
+  .pack-carousel {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    padding: 0 0 12px 0;
+    margin: 0;
+    list-style: none;
+    overflow-x: hidden;
+  }
+
+  .carousel-item {
+    min-width: 300px;
+    width: 300px;
+    max-width: 92vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    position: relative;
+    user-select: none;
+    margin: 0 18px;
+    background: transparent;
+    box-shadow: none;
+    outline: none;
+    transition: box-shadow 0.23s, transform 0.18s;
+    pointer-events: auto;
+    overflow-x: hidden;
+    &:focus-within {
+      box-shadow: 0 0 0 3px #00c6fbcc;
+      z-index: 2;
+    }
+  }
+
+  .carousel-img-wrapper {
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-end;
+    border-radius: 22px;
+    background: #101b2c;
+    box-shadow: 0 8px 40px 0 #00c6fb55, 0 2px 32px #000a, 0 0 0 2px #00c6fbcc;
+    overflow: hidden;
+    transition: box-shadow 0.25s;
+    &:hover,
+    &:focus-within {
+      box-shadow: 0 12px 54px 6px #00c6fbcc, 0 4px 32px 0 #1a2980ee;
+      z-index: 2;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 22px;
+      background: #181d29;
+      display: block;
+      position: relative;
+      z-index: 1;
+      box-shadow: none;
+      border: none;
+      transition: filter 0.18s;
+      &:focus {
+        outline: 2.5px solid #00c6fbcc;
+        filter: drop-shadow(0 0 8px #00c6fbcc);
+      }
+      &:not([src]) {
+        background: repeating-linear-gradient(
+          135deg,
+          #101b2c 0 12px,
+          #181d29 12px 24px
+        );
+        content: "";
+      }
+    }
+  }
+
+  .carousel-desc,
+  figcaption.carousel-desc {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background: rgba(20, 34, 55, 0.68);
+    color: #fff;
+    border-radius: 0 0 18px 18px;
+    padding: 0.7rem 12px 7px 12px;
+    font-size: 0.99rem;
+    font-weight: 400;
+    z-index: 2;
+    text-align: center;
+    letter-spacing: 0.01em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 32px;
+    pointer-events: none;
+    backdrop-filter: blur(2px) saturate(1.2);
+    -webkit-backdrop-filter: blur(2px) saturate(1.2);
+    opacity: 0.93;
+    text-shadow: 0 1px 8px #000b;
+  }
+
+  .pack-sale-cta {
+    margin: 18px auto 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    width: 100%;
+    max-width: 420px;
+    border-color: transparent !important;
+    background: none;
+    border-radius: 0;
+    padding: 0;
+    box-shadow: none;
+    transition: none;
+    outline: none;
+    overflow-x: hidden;
+  }
+
+  .price-info {
+    margin-bottom: 1rem !important;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 12px;
+    .old-price {
+      font-size: 1.25rem;
+      color: #fff9;
+      text-decoration: line-through;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      margin-right: 6px;
+    }
+    .discount {
+      font-size: 1.1rem;
+      color: #ffffff;
+      background: linear-gradient(90deg, #00c6fb 0%, #2c5364 100%);
+      border-radius: 8px;
+      padding: 3px 12px 3px 12px;
+      font-weight: 700;
+      margin-left: 2px;
+      letter-spacing: 1px;
+      box-shadow: 0 1px 8px #00c6fb33;
+    }
+  }
+
+  .btn-sale {
+    display: inline-block;
+    background: linear-gradient(120deg, #000 0%, #2c5364 60%, #00c6fb 100%);
+    color: #fff;
+    border: 2.5px solid #00c6fb99;
+    padding: 1.15rem 2.5rem;
+    font-size: 1.18rem;
+    font-weight: 700;
+    border-radius: 16px;
+    box-shadow: 0 0 32px #00c6fb88, 0 2px 16px #000b;
+    cursor: pointer;
+    margin: 0 0 14px 0;
+    letter-spacing: 0.03em;
+    position: relative;
+    z-index: 2;
+    overflow-x: hidden;
+    outline: none;
+    text-shadow: 0 2px 12px #000b, 0 1px 0 #00c6fbcc;
+    &:hover,
+    &:focus {
+      background: linear-gradient(
+        120deg,
+        #00c6fb 0%,
+        #2c5364 80%,
+        #0f2027 100%
+      );
+      box-shadow: 0 8px 38px #00c6fb99, 0 4px 22px #1a2980cc;
+      transform: translateY(-2px) scale(1.025);
+      outline: 2.5px solid #00c6fbcc;
+    }
+    &:active {
+      background: linear-gradient(120deg, #2c5364 0%, #00c6fb 100%);
+      box-shadow: 0 0 12px #00c6fb99;
+      transform: scale(0.98);
+    }
+  }
+
+  .cta-subtext {
+    color: #c6e6ff;
+    font-size: 1.01rem;
+    margin-top: 8px;
+    margin-bottom: 0;
+    text-align: center;
+    text-shadow: 0 1px 8px #000b;
+    letter-spacing: 0.01em;
+    font-weight: 500;
+  }
+
+  .pack-guides {
+    margin-top: 18px;
+    nav,
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    li {
+      font-size: 1.13rem;
+      color: #fff;
+      background: linear-gradient(90deg, #00c6fb 0%, #2c5364 100%);
+      border-radius: 8px;
+      padding: 8px 18px;
+      font-weight: 500;
+      box-shadow: 0 1px 8px #00c6fb33;
+      border: 1.5px solid #00c6fb66;
+      letter-spacing: 0.5px;
+      transition: background 0.18s, box-shadow 0.18s;
+      &:hover,
+      &:focus {
+        background: linear-gradient(90deg, #2c5364 0%, #00c6fb 100%);
+        box-shadow: 0 4px 18px #00c6fb55;
+      }
+    }
+  }
+
+  // Responsividad
+  @media (max-width: 700px) {
+    .pack-content {
+      max-width: 98vw;
+      padding: 0 2vw;
+      border-color: transparent !important;
+    }
+    .pack-carousel-fullwidth {
+      min-width: 0;
+      width: 100vw;
+      padding: 0;
+    }
+    .carousel-item {
+      margin: 0 1vw;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+    }
+    .carousel-img-wrapper {
+      border-radius: 13px;
+      aspect-ratio: 16/11;
+      min-height: 135px;
+      max-height: 220px;
+    }
+    .carousel-img-wrapper img {
+      border-radius: 13px;
+    }
+    .carousel-desc {
+      background: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 480px;
+      width: 100vw;
+      box-shadow: 0 6px 32px #0a1b3a44;
+      position: relative;
+
+      // Fade sutil arriba
+      &::before {
+        content: "";
+        position: absolute;
+        top: -48px;
+        left: 0;
+        width: 100%;
+        height: 64px;
+        pointer-events: none;
+        z-index: 2;
+        background: linear-gradient(
+          to bottom,
+          rgba(15, 32, 39, 0) 0%,
+          #0f2027 100%
+        );
+      }
+
+      .pack-content {
+        max-width: 700px;
+        margin: 0 auto;
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 28px;
+        text-align: center;
+        border-color: transparent !important;
+      }
+
+      h2 {
+        font-size: clamp(1.2rem, 4vw, 2.3rem);
+        font-weight: 700;
+        margin-bottom: 0.5em;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 100%;
+        max-width: 100vw;
+        letter-spacing: 0.02em;
+        .highlight {
+          color: #00c6fb;
+          background: linear-gradient(90deg, #00c6fb33 0%, #2c5364 100%);
+          border-radius: 0.5em;
+          padding: 0 0.3em;
+          font-weight: 800;
+        }
+      }
+
+      .pack-desc {
+        font-size: 1.35rem;
+        margin-bottom: 0.2em;
+        color: #fffb;
+      }
+
+      .pack-carousel-fullwidth {
+        width: 100vw;
+        min-width: 320px;
+        margin: 0 auto 24px auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        padding: 0;
+        background: transparent;
+        box-shadow: none;
+      }
+
+      .pack-carousel {
+        &.no-transition {
+          transition: none !important;
+        }
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        height: 100%;
+        width: max-content;
+        animation: band-carousel 36s linear infinite;
+        will-change: transform;
+        gap: 0;
+      }
+
+      .carousel-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0;
+        position: relative;
+        user-select: none;
+        pointer-events: none;
+        margin: 0 18px;
+        background: transparent;
+        box-shadow: none;
+      }
+
+      .carousel-img-wrapper {
+        width: 100%;
+        aspect-ratio: 16/11;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-end;
+        border-radius: 22px;
+        background: #101b2c;
+        box-shadow: 0 8px 40px 0 #00c6fb55, 0 2px 32px #000a,
+          0 0 0 2px #00c6fbcc;
+        overflow: hidden;
+        transition: box-shadow 0.25s;
+      }
+
+      .carousel-img-wrapper:hover {
+        box-shadow: 0 12px 54px 6px #00c6fbcc, 0 4px 32px 0 #1a2980ee;
+      }
+
+      .carousel-img-wrapper img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 22px;
+        background: #181d29;
+        display: block;
+        position: relative;
+        z-index: 1;
+        box-shadow: none;
+        border: none;
+      }
+
+      .carousel-img-shadow {
+        display: none;
+      }
+
+      .carousel-desc {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background: rgba(20, 34, 55, 0.62);
+        color: #fff;
+        border-radius: 0 0 18px 18px;
+        font-size: 0.99rem;
+        font-weight: 400;
+        z-index: 2;
+        text-align: center;
+        letter-spacing: 0.01em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 32px;
+        pointer-events: none;
+        backdrop-filter: blur(1.5px) saturate(1.2);
+        -webkit-backdrop-filter: blur(1.5px) saturate(1.2);
+        opacity: 0.92;
+      }
+
+      .carousel-text {
+        font-size: 1.07rem;
+        font-weight: 600;
+        color: #fff;
+        background: #181d29cc;
+        padding: 8px 18px;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px #0005;
+        margin-top: -10px;
+        display: inline-block;
+      }
+
+      .pack-guides {
+        margin-top: 18px;
+        ul {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+          li {
+            font-size: 1.15rem;
+            color: #fff;
+            background: linear-gradient(90deg, #00c6fb 0%, #2c5364 100%);
+            border-radius: 8px;
+            padding: 8px 18px;
+            font-weight: 500;
+            box-shadow: 0 1px 8px #00c6fb33;
+            border: 1.5px solid #00c6fb66;
+            letter-spacing: 0.5px;
+          }
+        }
+      }
+
+      @media (max-width: 700px) {
+        .pack-carousel-fullwidth {
+          min-width: 0;
+          width: 100vw;
+          padding: 0;
+        }
+        .carousel-item {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: flex-end;
+        }
+        .carousel-img-wrapper {
+          border-radius: 13px;
+          aspect-ratio: 16/11;
+          min-height: 135px;
+          max-height: 220px;
+        }
+        .carousel-img-wrapper img {
+          border-radius: 13px;
+        }
+        .carousel-desc {
+          font-size: 0.86rem;
+          min-height: 20px;
+          border-radius: 0 0 9px 9px;
+        }
+
+        .pack-carousel-fullwidth {
+          min-width: 0;
+          width: 100vw;
+          padding: 0;
+        }
+        .carousel-item {
+          min-width: 88vw;
+          width: 88vw;
+          max-width: 96vw;
+          height: 180px;
+          margin: 0 4vw;
+        }
+        .carousel-img-wrapper {
+          height: 180px;
+          border-radius: 16px;
+        }
+        .carousel-img-wrapper img {
+          height: 100%;
+          width: 100%;
+          border-radius: 16px;
+        }
+        .carousel-desc {
+          font-size: 0.88rem;
+          min-height: 24px;
+          border-radius: 0 0 12px 12px;
+        }
+
+        .pack-content {
+          max-width: 98vw;
+          padding: 0 2vw;
+          border-color: transparent !important;
+        }
+        .pack-carousel-container {
+          max-width: 98vw;
+          height: 180px;
+        }
+        .carousel-text {
+          font-size: 0.98rem;
+          padding: 7px 11px;
+        }
+      }
+    }
+    .pack-sale-cta {
+      margin: 18px auto 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      width: 100%;
+      max-width: 420px;
+      border-color: transparent !important;
+    }
+
+    .price-info {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 12px;
+    }
+
+    .btn-sale {
+      margin: 0 0 14px 0;
+    }
+
+    .cta-subtext {
+      padding-top: 10px;
+      padding-bottom: 2px;
+      margin-bottom: 0;
+    }
+
+    .old-price {
+      font-size: 1.25rem;
+      color: #fff9;
+      text-decoration: line-through;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      margin-right: 6px;
+    }
+    .discount {
+      font-size: 1.1rem;
+      color: #00c6fb;
+      background: linear-gradient(90deg, #00c6fb 0%, #2c5364 100%);
+      border-radius: 8px;
+      padding: 3px 12px 3px 12px;
+      font-weight: 700;
+      margin-left: 2px;
+      letter-spacing: 1px;
+      box-shadow: 0 1px 8px #00c6fb33;
+    }
+
+    .btn-sale {
+      display: inline-block;
+      background: linear-gradient(120deg, #000 0%, #2c5364 60%, #00c6fb 100%);
+      color: #fff;
+      border: 2.5px solid #00c6fb99;
+      padding: 1.15rem 2.5rem;
+      font-size: 1.18rem;
+      font-weight: 700;
+      border-radius: 16px;
+      box-shadow: 0 0 32px #00c6fb88, 0 2px 16px #000b;
+      cursor: pointer;
+      margin: 0;
+      letter-spacing: 0.03em;
+      position: relative;
+      z-index: 2;
+
+      outline: none;
+      text-shadow: 0 2px 12px #000b, 0 1px 0 #00c6fbcc;
+      overflow-x: hidden;
+      &:hover,
+      &:focus {
+        background: linear-gradient(
+          120deg,
+          #00c6fb 0%,
+          #2c5364 80%,
+          #0f2027 100%
+        );
+        box-shadow: 0 8px 38px #00c6fb99, 0 4px 22px #1a2980cc;
+        transform: translateY(-2px) scale(1.025);
+      }
+    }
+
+    .pack-sale-cta {
+      background: none;
+      border-radius: 0;
+      margin: 0;
+      padding: 0;
+      box-shadow: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      width: 100%;
+      max-width: 99vw;
+      transition: none;
+    }
+
+    .cta-subtext {
+      color: #c6e6ff;
+      font-size: 1.01rem;
+      margin-top: 8px;
+      margin-bottom: 0;
+      text-align: center;
+      text-shadow: 0 1px 8px #000b;
+      letter-spacing: 0.01em;
+      font-weight: 500;
+    }
+    .price-info {
+      margin-bottom: 0;
+      gap: 10px;
+      .old-price {
+        font-size: 1.04rem;
+      }
+      .discount {
+        font-size: 1rem;
+      }
+    }
+  }
+}
