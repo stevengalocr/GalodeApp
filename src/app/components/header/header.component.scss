@@ -1,0 +1,227 @@
+.main-header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.096);
+  color: white;
+}
+
+.header-desktop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: rgba(0, 0, 0, 0.096);
+
+  .left,
+  .center,
+  .right {
+    font-family: var(--font-main);
+    font-weight: 900;
+    font-size: 1.25rem;
+    color: #fff;
+    letter-spacing: 2px;
+    padding: 0 0.8rem;
+    text-transform: uppercase;
+    transition: color 0.25s;
+    cursor: pointer;
+    background: none;
+    border: none;
+    box-shadow: none;
+    outline: none;
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+  .left:hover,
+  .right:hover,
+  .center:hover {
+    text-decoration: none;
+    color: var(--color-main);
+    filter: brightness(1.15);
+  }
+}
+
+.center button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 2.2rem;
+  border: 2px solid rgba(255, 255, 255, 0.18);
+  pointer-events: none;
+  z-index: 1;
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  transition: box-shadow 0.6s cubic-bezier(0.77, 0, 0.18, 1);
+  animation: border-pulse 2.4s infinite cubic-bezier(0.77, 0, 0.18, 1);
+}
+.center button:hover,
+.center button:focus {
+  background: rgba(0, 0, 0, 0.88);
+  color: #fff;
+  border: 2px solid #fff;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.18), 0 2px 24px 0 rgba(0, 0, 0, 0.09);
+  transform: scale(1.035);
+}
+.center button:hover::before,
+.center button:focus::before {
+  box-shadow: 0 0 18px 2px rgba(255, 255, 255, 0.23);
+}
+
+.header-mobile {
+  display: none;
+}
+
+// Sidebar
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 82vw;
+  max-width: 340px;
+  height: 100vh;
+  background: rgba(20, 30, 45, 0.98);
+  box-shadow: -4px 0 24px #0006;
+  z-index: 999;
+  transform: translateX(100%);
+  transition: transform 0.35s cubic-bezier(0.77, 0, 0.18, 1), box-shadow 0.25s;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  pointer-events: none;
+
+  &.open {
+    transform: translateX(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .sidebar-content {
+    padding: 2.5rem 1.5rem 1.5rem 1.5rem;
+    color: #fff;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    position: relative;
+    overflow-y: auto;
+  }
+
+  .close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2.2rem;
+    cursor: pointer;
+    z-index: 2;
+    transition: color 0.2s;
+    &:hover {
+      color: #5e6ce7;
+    }
+  }
+
+  h3,
+  h4 {
+    margin: 1.5rem 0 0.7rem 0;
+    font-weight: 800;
+  }
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1rem 0;
+  }
+  li {
+    margin-bottom: 0.7rem;
+  }
+  a {
+    color: var(--color-main);
+    font-family: var(--font-main);
+    font-weight: 700;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.sidebar::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.32);
+  backdrop-filter: blur(2px);
+  z-index: -1;
+}
+
+.sidebar.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+// Botón hamburguesa
+.sidebar-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 0.5rem;
+  margin-left: auto;
+  z-index: 1001;
+}
+.sidebar-toggle .bar {
+  width: 26px;
+  height: 3px;
+  background: #00c6fb;
+  border-radius: 2px;
+  transition: all 0.3s;
+  display: block;
+}
+
+.header-title {
+  font-size: 1.6rem;
+  font-weight: 900;
+  text-align: center;
+  padding: 0.5rem 0;
+  flex: 1;
+  color: #fff;
+}
+
+// Responsive
+@media (max-width: 900px) {
+  .header-desktop {
+    display: none;
+  }
+  .header-mobile {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.2rem 1rem 1.2rem;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    box-shadow: 0 1px 12px 0 #0002;
+
+    .mobile-left.logo-placeholder {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: transparent;
+      margin-right: 0.8rem;
+      flex-shrink: 0;
+      /* Aquí irá el logo en el futuro */
+    }
+    .header-title {
+      flex: 1;
+      text-align: center;
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: 1.5px;
+    }
+  }
+}
