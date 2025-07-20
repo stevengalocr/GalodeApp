@@ -70,20 +70,13 @@
 }
 
 .pack-section {
-  background: linear-gradient(
-    120deg,
-    #07080d 0%, /* negro casi absoluto */
-    #10111a 50%, /* negro suave */
-    #11182a 90%, /* azul espacio oscuro */
-    #19213a 100% /* azul espacio profundo */
-  );
   box-shadow: 0 12px 48px 0 #07080d77, 0 4px 36px #11182a55, 0 0 0 2px #00aaff33;
-  border-radius: 28px;
+  border-radius: 28px 28px 0 0;
   border: 1.5px solid #233b5e;
+  border-color: transparent !important;
   scroll-margin-top: 90px;
   outline: none;
-  padding: 0 0 38px 0;
-  margin: 0 auto 54px auto;
+  padding: 0 0 19px 0;
   overflow-x: hidden;
 
   .pack-content {
@@ -210,14 +203,31 @@
   }
 
   .pack-carousel {
-    display: flex;
-    align-items: stretch;
-    gap: 0;
-    padding: 0 0 12px 0;
-    margin: 0;
-    list-style: none;
-    overflow-x: hidden;
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  padding: 0 0 12px 0;
+  margin: 0;
+  list-style: none;
+  overflow-x: hidden;
+  width: max-content;
+  animation: band-carousel 36s linear infinite;
+  will-change: transform;
+}
+
+@keyframes band-carousel {
+  0% {
+    transform: translateX(0);
   }
+  100% {
+    transform: translateX(-15%);
+  }
+}
+
+.pack-carousel:hover {
+  animation-play-state: paused;
+}
+
 
   .carousel-item {
     min-width: 300px;
@@ -552,7 +562,7 @@
         margin: 0 auto;
         height: 100%;
         width: max-content;
-        animation: band-carousel 36s linear infinite;
+        animation: band-carousel 900s linear infinite !important;
         will-change: transform;
         gap: 0;
       }

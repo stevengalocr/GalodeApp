@@ -215,3 +215,12 @@
   }
 }
 
+.pack-body {
+  background: linear-gradient(
+    120deg,
+    #07080d 0%, /* negro casi absoluto */
+    #10111a 50%, /* negro suave */
+    #11182a 90%, /* azul espacio oscuro */
+    #19213a 100% /* azul espacio profundo */
+  );
+}
