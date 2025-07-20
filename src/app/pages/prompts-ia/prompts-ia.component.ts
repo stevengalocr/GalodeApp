@@ -1,20 +1,24 @@
-import { Component, Inject, PLATFORM_ID, ViewChild, ElementRef, OnInit, OnDestroy } from '@angular/core';
+import { Component, Inject, PLATFORM_ID, ViewChild, ElementRef, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from '../../components/header/header.component';
 import { SpecialOfferComponent } from '../../components/special-offer/special-offer.component';
 import { packItems } from '../../data/packItems';
 import { benefitsItems } from '../../data/benefitsItems';
+import { HotmartTrustCarouselComponent } from "../../components/hotmart-trust-carousel/hotmart-trust-carousel";
 
 
 @Component({
   selector: 'app-prompts-ia',
   standalone: true,
-  imports: [CommonModule, HeaderComponent, SpecialOfferComponent],
+  imports: [CommonModule, HeaderComponent, SpecialOfferComponent, HotmartTrustCarouselComponent],
   templateUrl: './prompts-ia.component.html',
   styleUrls: ['./prompts-ia.component1.scss', './prompts-ia.component2.scss', './prompts-ia.component3.scss'],
 })
 export class PromptsIAComponent implements OnInit, OnDestroy {
+  // Carruseles visuales sin auto-scroll
+
+
   packItems = packItems;
 
   packItemsList1 = this.shufflePackItems();
@@ -83,8 +87,9 @@ export class PromptsIAComponent implements OnInit, OnDestroy {
     }
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
+
+
 
   ngOnDestroy(): void {
     if (this.benefitInterval) {

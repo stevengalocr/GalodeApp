@@ -1,0 +1,19 @@
+<div class="trust-carousel-wrapper">
+  <h2 id="pack-title">
+    <span class="highlight">Preguntas frecuentes</span>
+  </h2>
+  <ul class="trust-carousel" #carouselList role="list">
+    <ng-container *ngFor="let repeat of [0, 1]">
+      <li
+        class="carousel-item"
+        role="listitem"
+        *ngFor="let reason of reasons"
+      >
+        <div class="carousel-title">{{ reason.title }}</div>
+        <div class="carousel-desc">{{ reason.description }}</div>
+      </li>
+    </ng-container>
+  </ul>
+  <button class="carousel-nav prev" (click)="prev()">‹</button>
+  <button class="carousel-nav next" (click)="next()">›</button>
+</div>

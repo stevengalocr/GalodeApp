@@ -69,6 +69,18 @@
   }
 }
 
+.pack-carousel {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 1.2rem;
+  padding: 0.7rem 0;
+  list-style: none;
+  scrollbar-width: none;
+  width: 100%;
+  &::-webkit-scrollbar { display: none; }
+}
+
 .pack-section {
   border-color: transparent !important;
   scroll-margin-top: 90px;

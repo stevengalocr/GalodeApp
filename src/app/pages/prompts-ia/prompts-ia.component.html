@@ -154,7 +154,7 @@
         <div class="carousel-fade-left"></div>
         <div class="carousel-fade-right"></div>
         <!-- linea 1 -->
-        <ul class="pack-carousel" role="list">
+        <ul #packCarousel1 class="pack-carousel" role="list">
           <ng-container *ngFor="let repeat of [0, 1]">
             <li
               class="carousel-item"
@@ -168,7 +168,7 @@
           </ng-container>
         </ul>
         <!-- linea 2 -->
-        <ul class="pack-carousel" role="list">
+        <ul #packCarousel2 class="pack-carousel" role="list">
           <ng-container *ngFor="let repeat of [0, 1]">
             <li
               class="carousel-item"
@@ -205,5 +205,6 @@
         <app-special-offer></app-special-offer>
       </div>
     </div>
+    <app-hotmart-trust-carousel></app-hotmart-trust-carousel>
   </section>
 </section>
