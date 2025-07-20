@@ -10,7 +10,9 @@
       Aprendé a crear videos, imágenes y negocios digitales con inteligencia
       artificial. Sin límites.
     </p>
-    <button class="btn-primary" (click)="scrollToPack()">Ver Infoproducto</button>
+    <button class="btn-primary" (click)="scrollToPack()">
+      Ver Infoproducto
+    </button>
     <div class="scroll-indicator">
       <svg
         width="38"
@@ -31,99 +33,177 @@
   </div>
 </section>
 
-<!-- 🧠 Sección 2: ¿Qué es el Pack GaloDev? -->
+<!-- Sección 2: ¿Qué es el Pack GaloDev? -->
 <section class="pack-body">
-<section class="pack-section" id="pack-section" aria-labelledby="pack-title" tabindex="-1">
-  <div class="pack-content">
-    <h2 id="pack-title">
-      ¿Qué incluye <span class="highlight">GaloPrompterIA</span>?
-    </h2>
-    <p class="pack-desc">
-      <strong
-        >El infoproducto <span class="highlight">GaloPrompterIA</span>:</strong
+  <section
+    class="pack-section"
+    id="pack-section"
+    aria-labelledby="pack-title"
+    tabindex="-1"
+  >
+    <div class="pack-content">
+      <h2 id="pack-title">
+        ¿Qué incluye <span class="highlight">GaloPrompterIA</span>?
+      </h2>
+      <p class="pack-desc">
+        <strong
+          >El infoproducto
+          <span class="highlight">GaloPrompterIA</span>:</strong
+        >
+        Guías completas con el paso a paso de cómo crear este contenido +
+        <b>200 videos IA</b> + <b>400 imágenes ultra-realistas</b> diseñadas
+        para emocionar, vender y generar impacto visual. ¡Todo lo que necesitas
+        para triunfar con inteligencia artificial!
+      </p>
+      <div
+        class="pack-carousel-fullwidth"
+        aria-label="Carrusel de beneficios"
+        role="region"
       >
-      Guías completas con el paso a paso de cómo crear este contenido +
-      <b>200 videos IA</b> + <b>400 imágenes ultra-realistas</b> diseñadas para
-      emocionar, vender y generar impacto visual. ¡Todo lo que necesitas para
-      triunfar con inteligencia artificial!
-    </p>
+        <div class="carousel-fade-left"></div>
+        <div class="carousel-fade-right"></div>
+        <ul class="pack-carousel" role="list">
+          <ng-container *ngFor="let repeat of [0, 1]">
+            <li
+              class="carousel-item"
+              role="listitem"
+              *ngFor="let item of packItems"
+            >
+              <figure class="carousel-img-wrapper">
+                <img [src]="item.img" [alt]="item.alt" loading="lazy" />
+                <figcaption class="carousel-desc">
+                  <span>{{ item.desc }}</span>
+                </figcaption>
+              </figure>
+            </li>
+          </ng-container>
+        </ul>
+      </div>
+      <div class="pack-sale-cta" role="region" aria-label="Oferta especial">
+        <div class="price-info">
+          <span class="old-price" aria-label="Precio anterior">US$29.99</span>
+          <span class="discount" aria-label="67 por ciento de descuento"
+            >67% OFF</span
+          >
+        </div>
+        <a
+          class="btn-sale"
+          href="https://pay.hotmart.com/C100921721J?bid=1752977426282"
+          target="_blank"
+          rel="noopener"
+          aria-label="Comprar GaloPrompterIA por 9.99 dólares en Hotmart (se abre en nueva pestaña)"
+        >
+          <span class="price-now" aria-live="polite">COMPRA POR US$9.99</span>
+        </a>
+        <div class="cta-subtext">Precio especial por lanzamiento</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección 3: Lo que obtendrás -->
+  <section class="section-benefits" aria-labelledby="benefits-title">
+    <h2 id="benefits-title" class="benefits-title">
+      Lo que <span>contiene</span> este infoproducto
+    </h2>
     <div
-      class="pack-carousel-fullwidth"
+      class="benefits-carousel-fullwidth"
       aria-label="Carrusel de beneficios"
       role="region"
     >
-      <div class="carousel-fade-left"></div>
-      <div class="carousel-fade-right"></div>
-      <ul class="pack-carousel" role="list">
-  <ng-container *ngFor="let repeat of [0,1]">
-    <li
-      class="carousel-item"
-      role="listitem"
-      *ngFor="let item of packItems"
-    >
-      <figure class="carousel-img-wrapper">
-        <img [src]="item.img" [alt]="item.alt" loading="lazy" />
-        <figcaption class="carousel-desc">
-          <span>{{ item.desc }}</span>
-        </figcaption>
-      </figure>
-    </li>
-  </ng-container>
-</ul>
-    </div>
-    <div class="pack-sale-cta" role="region" aria-label="Oferta especial">
-      <div class="price-info">
-        <span class="old-price" aria-label="Precio anterior">US$29.99</span>
-        <span class="discount" aria-label="67 por ciento de descuento"
-          >67% OFF</span
-        >
-      </div>
-      <a
-        class="btn-sale"
-        href="https://pay.hotmart.com/C100921721J?bid=1752977426282"
-        target="_blank"
-        rel="noopener"
-        aria-label="Comprar GaloPrompterIA por 9.99 dólares en Hotmart (se abre en nueva pestaña)"
+      <div
+        class="benefits-cards benefits-carousel-mobile"
+        [style.transform]="getBenefitTransform()"
+        (touchstart)="onTouchStart($event)"
+        (touchend)="onTouchEnd($event)"
       >
-        <span class="price-now" aria-live="polite">COMPRA POR US$9.99</span>
-      </a>
-      <div class="cta-subtext">Precio especial por lanzamiento</div>
+        <div
+          class="benefit-card"
+          *ngFor="let benefit of benefits; let i = index"
+          tabindex="0"
+          [attr.aria-label]="benefit.aria"
+          [class.active]="i === benefitIndex"
+          [class.left]="
+            i === (benefitIndex - 1 + benefits.length) % benefits.length
+          "
+          [class.right]="i === (benefitIndex + 1) % benefits.length"
+        >
+          <div class="benefit-icon" aria-hidden="true">{{ benefit.icon }}</div>
+          <div class="benefit-title">{{ benefit.title }}</div>
+          <div class="benefit-desc">{{ benefit.desc }}</div>
+        </div>
+      </div>
     </div>
-    <!-- <nav class="pack-guides" aria-label="Incluye también">
-      <ul>
-        <li>Guías y ejemplos comerciales</li>
-        <li>Prompts listos para usar</li>
-        <li>Acceso a herramientas gratuitas como VEO3</li>
-      </ul>
-    </nav> -->
-  </div>
-</section>
+  </section>
 
-<!-- 🎁 Sección 3: Lo que obtendrás -->
-<section class="section-benefits" aria-labelledby="benefits-title">
-  <h2 id="benefits-title" class="benefits-title">
-    Lo que <span>contiene</span> este infoproducto
-  </h2>
-  <div class="benefits-carousel-fullwidth" aria-label="Carrusel de beneficios" role="region">
-  <div class="benefits-cards benefits-carousel-mobile"
-    [style.transform]="getBenefitTransform()"
-    (touchstart)="onTouchStart($event)"
-    (touchend)="onTouchEnd($event)"
+  <!-- Sección 4: Ejemplos visuales -->
+  <section
+    class="pack-section"
+    id="pack-section"
+    aria-labelledby="pack-title"
+    tabindex="-1"
   >
-    <div
-      class="benefit-card"
-      *ngFor="let benefit of benefits; let i = index"
-      tabindex="0"
-      [attr.aria-label]="benefit.aria"
-      [class.active]="i === benefitIndex"
-      [class.left]="i === (benefitIndex - 1 + benefits.length) % benefits.length"
-      [class.right]="i === (benefitIndex + 1) % benefits.length"
-    >
-      <div class="benefit-icon" aria-hidden="true">{{ benefit.icon }}</div>
-      <div class="benefit-title">{{ benefit.title }}</div>
-      <div class="benefit-desc">{{ benefit.desc }}</div>
+    <div class="pack-content">
+      <h2 id="pack-title">
+        <span class="highlight">Ejemplos visuales</span>
+      </h2>
+      <div
+        class="pack-carousel-fullwidth"
+        aria-label="Carrusel de ejemplos visuales"
+        role="region"
+      >
+        <div class="carousel-fade-left"></div>
+        <div class="carousel-fade-right"></div>
+        <!-- linea 1 -->
+        <ul class="pack-carousel" role="list">
+          <ng-container *ngFor="let repeat of [0, 1]">
+            <li
+              class="carousel-item"
+              role="listitem"
+              *ngFor="let item of packItemsList1"
+            >
+              <figure class="carousel-img-wrapper">
+                <img [src]="item.img" [alt]="item.alt" loading="lazy" />
+              </figure>
+            </li>
+          </ng-container>
+        </ul>
+        <!-- linea 2 -->
+        <ul class="pack-carousel" role="list">
+          <ng-container *ngFor="let repeat of [0, 1]">
+            <li
+              class="carousel-item"
+              role="listitem"
+              *ngFor="let item of packItemsList2.slice().reverse()"
+            >
+              <figure class="carousel-img-wrapper">
+                <img [src]="item.img" [alt]="item.alt" loading="lazy" />
+              </figure>
+            </li>
+          </ng-container>
+        </ul>
+      </div>
     </div>
-  </div>
-</div>
-</section>
+  </section>
+
+  <!-- Sección 5 + 6: ¿Para quién + Oferta especial -->
+  <section class="pack-section duo-section" id="duo-section">
+    <div class="duo-scroll">
+      <div class="duo-item para-quien">
+        <div class="pack-content">
+          <h2 class="para-quien-title">
+            Este <span>Infoproducto</span> es para vos si...
+          </h2>
+          <ul class="para-quien-list">
+            <li>Querés empezar a crear contenido viral con IA pero no sabés por dónde comenzar</li>
+            <li>Sos diseñador, creador o vendés productos visuales</li>
+            <li>Querés imágenes y videos únicos, sin tener que generar cada uno</li>
+            <li>Querés posicionarte en redes con contenido diferente y potente</li>
+          </ul>
+        </div>
+      </div>
+      <div class="duo-item offer">
+        <app-special-offer></app-special-offer>
+      </div>
+    </div>
+  </section>
 </section>

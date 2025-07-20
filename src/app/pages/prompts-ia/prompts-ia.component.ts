@@ -2,6 +2,7 @@ import { Component, Inject, PLATFORM_ID, ViewChild, ElementRef, OnInit, OnDestro
 import { isPlatformBrowser } from '@angular/common';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from '../../components/header/header.component';
+import { SpecialOfferComponent } from '../../components/special-offer/special-offer.component';
 import { packItems } from '../../data/packItems';
 import { benefitsItems } from '../../data/benefitsItems';
 
@@ -9,12 +10,28 @@ import { benefitsItems } from '../../data/benefitsItems';
 @Component({
   selector: 'app-prompts-ia',
   standalone: true,
-  imports: [CommonModule, HeaderComponent],
+  imports: [CommonModule, HeaderComponent, SpecialOfferComponent],
   templateUrl: './prompts-ia.component.html',
   styleUrls: ['./prompts-ia.component1.scss', './prompts-ia.component2.scss', './prompts-ia.component3.scss'],
 })
 export class PromptsIAComponent implements OnInit, OnDestroy {
   packItems = packItems;
+
+  packItemsList1 = this.shufflePackItems();
+  packItemsList2 = this.shufflePackItems();
+
+
+  // Devuelve una copia desordenada de packItems
+  shufflePackItems() {
+    const array = [...packItems];
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  }
+
+
   currentIndex = 0;
 
   // BENEFITS CAROUSEL
@@ -50,18 +67,6 @@ export class PromptsIAComponent implements OnInit, OnDestroy {
     return `translateX(-${this.currentIndex * 100}%)`;
   }
 
-  nextCard() {
-    if (this.currentIndex < this.packItems.length - 1) {
-      this.currentIndex++;
-    }
-  }
-
-  prevCard() {
-    if (this.currentIndex > 0) {
-      this.currentIndex--;
-    }
-  }
-
   getBenefitTransform() {
     return `translateX(-${this.benefitIndex * 100}%)`;
   }
@@ -79,9 +84,6 @@ export class PromptsIAComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.benefitInterval = setInterval(() => {
-      this.nextBenefitAuto();
-    }, 3000);
   }
 
   ngOnDestroy(): void {
