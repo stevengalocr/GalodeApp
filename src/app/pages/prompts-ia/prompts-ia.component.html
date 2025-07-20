@@ -10,7 +10,7 @@
       Aprendé a crear videos, imágenes y negocios digitales con inteligencia
       artificial. Sin límites.
     </p>
-    <button class="btn-primary">Ver Infoproducto</button>
+    <button class="btn-primary" (click)="scrollToPack()">Ver Infoproducto</button>
     <div class="scroll-indicator">
       <svg
         width="38"
@@ -33,7 +33,7 @@
 
 <!-- 🧠 Sección 2: ¿Qué es el Pack GaloDev? -->
 <section class="pack-body">
-<section class="pack-section" aria-labelledby="pack-title" tabindex="-1">
+<section class="pack-section" id="pack-section" aria-labelledby="pack-title" tabindex="-1">
   <div class="pack-content">
     <h2 id="pack-title">
       ¿Qué incluye <span class="highlight">GaloPrompterIA</span>?
@@ -102,19 +102,22 @@
 <!-- 🎁 Sección 3: Lo que obtendrás -->
 <section class="section-benefits" aria-labelledby="benefits-title">
   <h2 id="benefits-title" class="benefits-title">
-    Lo que <span>obtendrás</span>
+    Lo que <span>contiene</span> este infoproducto
   </h2>
   <div class="benefits-carousel-fullwidth" aria-label="Carrusel de beneficios" role="region">
-  <div class="benefits-cards"
+  <div class="benefits-cards benefits-carousel-mobile"
     [style.transform]="getBenefitTransform()"
     (touchstart)="onTouchStart($event)"
     (touchend)="onTouchEnd($event)"
   >
     <div
       class="benefit-card"
-      *ngFor="let benefit of benefits"
+      *ngFor="let benefit of benefits; let i = index"
       tabindex="0"
       [attr.aria-label]="benefit.aria"
+      [class.active]="i === benefitIndex"
+      [class.left]="i === (benefitIndex - 1 + benefits.length) % benefits.length"
+      [class.right]="i === (benefitIndex + 1) % benefits.length"
     >
       <div class="benefit-icon" aria-hidden="true">{{ benefit.icon }}</div>
       <div class="benefit-title">{{ benefit.title }}</div>

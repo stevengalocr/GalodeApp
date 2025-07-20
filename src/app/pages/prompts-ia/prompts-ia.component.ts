@@ -13,13 +13,14 @@ import { benefitsItems } from '../../data/benefitsItems';
   templateUrl: './prompts-ia.component.html',
   styleUrls: ['./prompts-ia.component1.scss', './prompts-ia.component2.scss', './prompts-ia.component3.scss'],
 })
-export class PromptsIAComponent {
+export class PromptsIAComponent implements OnInit, OnDestroy {
   packItems = packItems;
   currentIndex = 0;
 
   // BENEFITS CAROUSEL
   benefits = benefitsItems;
   benefitIndex = 0;
+  private benefitInterval: any;
 
   // Variables para swipe táctil
   private touchStartX: number = 0;
@@ -76,7 +77,31 @@ export class PromptsIAComponent {
       this.benefitIndex--;
     }
   }
+
+  ngOnInit(): void {
+    this.benefitInterval = setInterval(() => {
+      this.nextBenefitAuto();
+    }, 3000);
+  }
+
+  ngOnDestroy(): void {
+    if (this.benefitInterval) {
+      clearInterval(this.benefitInterval);
+    }
+  }
+
+  nextBenefitAuto() {
+    this.benefitIndex = (this.benefitIndex + 1) % this.benefits.length;
+  }
+
+  scrollToPack() {
+    const el = document.getElementById('pack-section');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
 }
+
 
 
 
