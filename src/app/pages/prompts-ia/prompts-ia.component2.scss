@@ -326,7 +326,6 @@
     backdrop-filter: blur(2px) saturate(1.2);
     -webkit-backdrop-filter: blur(2px) saturate(1.2);
     opacity: 0.93;
-    text-shadow: 0 1px 8px #000b;
   }
 
   .pack-sale-cta {
@@ -415,7 +414,6 @@
     margin-top: 8px;
     margin-bottom: 0;
     text-align: center;
-    text-shadow: 0 1px 8px #000b;
     letter-spacing: 0.01em;
     font-weight: 500;
   }
@@ -814,7 +812,6 @@
       z-index: 2;
 
       outline: none;
-      text-shadow: 0 2px 12px #000b, 0 1px 0 #00c6fbcc;
       overflow-x: hidden;
       &:hover,
       &:focus {
@@ -850,7 +847,6 @@
       margin-top: 8px;
       margin-bottom: 0;
       text-align: center;
-      text-shadow: 0 1px 8px #000b;
       letter-spacing: 0.01em;
       font-weight: 500;
     }
