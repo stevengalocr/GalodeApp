@@ -1,13 +1,13 @@
 export const benefitsItems = [
   {
     icon: '🎬',
-    title: '+100 videos',
+    title: '+200 videos',
     desc: 'POV + ASMR. Experiencias inmersivas para aprender y crear.',
     aria: 'Más de 100 videos ultra-realistas POV y ASMR'
   },
   {
     icon: '🖼️',
-    title: '+300 imágenes',
+    title: '+400 imágenes',
     desc: 'Imágenes listas en alta definición para tus proyectos y redes.',
     aria: 'Más de 300 imágenes HD listas'
   },

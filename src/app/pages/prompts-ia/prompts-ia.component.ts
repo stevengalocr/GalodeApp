@@ -1,5 +1,4 @@
-import { Component, Inject, PLATFORM_ID, ViewChild, ElementRef, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from '../../components/header/header.component';
 import { SpecialOfferComponent } from '../../components/special-offer/special-offer.component';

@@ -5,15 +5,19 @@
   <ul class="trust-carousel" #carouselList role="list">
     <ng-container *ngFor="let repeat of [0, 1]">
       <li
-        class="carousel-item"
-        role="listitem"
-        *ngFor="let reason of reasons"
+      class="carousel-item"
+      role="listitem"
+      *ngFor="let reason of reasons"
       >
-        <div class="carousel-title">{{ reason.title }}</div>
-        <div class="carousel-desc">{{ reason.description }}</div>
-      </li>
-    </ng-container>
-  </ul>
-  <button class="carousel-nav prev" (click)="prev()">‹</button>
-  <button class="carousel-nav next" (click)="next()">›</button>
+      <div class="trust-badge">
+        {{ reason.title }}
+      </div>
+      <div class="carousel-icon">
+      </div>
+      <div class="carousel-title">{{ reason.description }}</div>
+      <div class="microtrust-text">Protegido por Hotmart &amp; cifrado SSL</div>
+    </li>
+  </ng-container>
+</ul>
+
 </div>

@@ -44,12 +44,5 @@ export class HotmartTrustCarouselComponent implements AfterViewInit, OnDestroy {
 }
   }
 
-  next() {
-    this.current = (this.current + 1) % this.reasons.length;
-    this.scrollToCurrent();
-  }
-  prev() {
-    this.current = (this.current - 1 + this.reasons.length) % this.reasons.length;
-    this.scrollToCurrent();
-  }
+
 }

@@ -6,7 +6,7 @@ export interface HotmartTrustReason {
   export const HOTMART_TRUST_REASONS: HotmartTrustReason[] = [
     {
       title: 'Pago 100% Seguro',
-      description: 'Tus datos y tu dinero están protegidos por la tecnología Hotmart.'
+      description: 'Tus datos y tu dinero están protegidos.'
     },
     {
       title: 'Reembolso Garantizado',

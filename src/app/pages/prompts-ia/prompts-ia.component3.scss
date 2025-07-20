@@ -14,18 +14,10 @@
     margin-bottom: 18px;
     text-align: center;
     text-shadow: 0 4px 24px #000a;
-    color: #fff;
     background: none;
     -webkit-background-clip: initial;
     -webkit-text-fill-color: initial;
     background-clip: initial;
-    span {
-      color: #00c6fb;
-      background: linear-gradient(90deg, #00c6fb 0%, #d8f7ff 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
   }
 
   .benefits-carousel-fullwidth {
@@ -291,7 +283,7 @@
     font-weight: 900;
     letter-spacing: -1.2px;
     color: #fff;
-    margin-bottom: 1.6rem;
+    margin-bottom: 0.5rem;
     text-align: center;
     line-height: 1.2;
     text-shadow: 0 4px 24px #000a;
@@ -299,14 +291,6 @@
     -webkit-background-clip: initial;
     -webkit-text-fill-color: initial;
     background-clip: initial;
-  
-    span {
-      color: #00c6fb;
-      background: linear-gradient(90deg, #00c6fb 0%, #9feaff 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
   }
 
   // Incluye aquí el bloque de .para-quien-list que te pasé antes
@@ -359,7 +343,7 @@
       max-width: 98vw;
     }
     .para-quien-title {
-      font-size: 1.2rem;
+      font-size: 1.8rem;
       &::after {
         width: 32px;
         height: 3px;
@@ -447,9 +431,6 @@
   font-size: 2.1rem;
   font-weight: 700;
   margin-bottom: 1.2rem;
-  span {
-    color: #1ca1f1;
-  }
 }
 
 .para-quien-list {
@@ -473,7 +454,6 @@
   display: flex;
   flex-direction: column;
   gap: 0.7rem;
-  padding: 0.7rem 0 0 0;
   margin: 0 auto;
   max-width: 440px;
 }
@@ -498,6 +478,22 @@
 }
 
 @media (max-width: 600px) {
+  .benefits-title,
+  h2.benefits-title,
+  .section-benefits .benefits-title {
+    font-size: 2.6rem !important;
+    line-height: 1.22 !important;
+    padding-bottom: 0.18em !important;
+    word-break: break-word !important;
+    hyphens: auto !important;
+    -webkit-hyphens: auto !important;
+    -webkit-text-size-adjust: 100% !important;
+    text-align: center !important;
+  }
+}
+
+
+@media (max-width: 600px) {
   .para-quien-block {
     padding: 0.5rem 0 0 0;
     max-width: 98vw;
@@ -508,3 +504,4 @@
     padding: 0.75rem 0.7rem;
   }
 }
+
