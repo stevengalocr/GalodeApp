@@ -104,22 +104,23 @@
   <h2 id="benefits-title" class="benefits-title">
     Lo que <span>obtendrás</span>
   </h2>
-  <div class="benefits-cards">
-    <div class="benefit-card" tabindex="0" aria-label="Más de 100 videos ultra-realistas POV y ASMR">
-      <div class="benefit-icon" aria-hidden="true">🎬</div>
-      <div class="benefit-title">100+ videos</div>
-      <div class="benefit-desc">POV + ASMR. Experiencias inmersivas para aprender y crear.</div>
-    </div>
-    <div class="benefit-card" tabindex="0" aria-label="Más de 300 imágenes HD listas">
-      <div class="benefit-icon" aria-hidden="true">🖼️</div>
-      <div class="benefit-title">300+ imágenes</div>
-      <div class="benefit-desc">Imágenes listas en alta definición para tus proyectos y redes.</div>
-    </div>
-    <div class="benefit-card" tabindex="0" aria-label="Acceso a más de 5 guías exclusivas en PDF">
-      <div class="benefit-icon" aria-hidden="true">📦</div>
-      <div class="benefit-title">+5 guías exclusivas</div>
-      <div class="benefit-desc">PDFs descargables.</div>
+  <div class="benefits-carousel-fullwidth" aria-label="Carrusel de beneficios" role="region">
+  <div class="benefits-cards"
+    [style.transform]="getBenefitTransform()"
+    (touchstart)="onTouchStart($event)"
+    (touchend)="onTouchEnd($event)"
+  >
+    <div
+      class="benefit-card"
+      *ngFor="let benefit of benefits"
+      tabindex="0"
+      [attr.aria-label]="benefit.aria"
+    >
+      <div class="benefit-icon" aria-hidden="true">{{ benefit.icon }}</div>
+      <div class="benefit-title">{{ benefit.title }}</div>
+      <div class="benefit-desc">{{ benefit.desc }}</div>
     </div>
   </div>
+</div>
 </section>
 </section>

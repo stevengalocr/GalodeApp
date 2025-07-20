@@ -3,6 +3,7 @@ import { isPlatformBrowser } from '@angular/common';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from '../../components/header/header.component';
 import { packItems } from '../../data/packItems';
+import { benefitsItems } from '../../data/benefitsItems';
 
 
 @Component({
@@ -14,5 +15,68 @@ import { packItems } from '../../data/packItems';
 })
 export class PromptsIAComponent {
   packItems = packItems;
+  currentIndex = 0;
+
+  // BENEFITS CAROUSEL
+  benefits = benefitsItems;
+  benefitIndex = 0;
+
+  // Variables para swipe táctil
+  private touchStartX: number = 0;
+  private touchEndX: number = 0;
+
+  onTouchStart(event: TouchEvent) {
+    this.touchStartX = event.changedTouches[0].screenX;
+  }
+
+  onTouchEnd(event: TouchEvent) {
+    this.touchEndX = event.changedTouches[0].screenX;
+    this.handleSwipe();
+  }
+
+  private handleSwipe() {
+    const deltaX = this.touchEndX - this.touchStartX;
+    const threshold = 40; // Sensibilidad mínima para swipe
+    if (deltaX > threshold) {
+      this.prevBenefit();
+    } else if (deltaX < -threshold) {
+      this.nextBenefit();
+    }
+  }
+
+  getTransform() {
+    // Centra la card activa, muestra peek a los lados
+    return `translateX(-${this.currentIndex * 100}%)`;
+  }
+
+  nextCard() {
+    if (this.currentIndex < this.packItems.length - 1) {
+      this.currentIndex++;
+    }
+  }
+
+  prevCard() {
+    if (this.currentIndex > 0) {
+      this.currentIndex--;
+    }
+  }
+
+  getBenefitTransform() {
+    return `translateX(-${this.benefitIndex * 100}%)`;
+  }
+
+  nextBenefit() {
+    if (this.benefitIndex < this.benefits.length - 1) {
+      this.benefitIndex++;
+    }
+  }
+
+  prevBenefit() {
+    if (this.benefitIndex > 0) {
+      this.benefitIndex--;
+    }
+  }
 }
+
+
 
