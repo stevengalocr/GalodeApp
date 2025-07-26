@@ -9,12 +9,12 @@ export interface HotmartTrustReason {
       description: 'Tus datos y tu dinero están protegidos.'
     },
     {
-      title: 'Reembolso Garantizado',
+      title: 'Reembolso',
       description: 'Recibe tu dinero de vuelta si el producto no es lo que esperabas.'
     },
     {
       title: 'Acceso Inmediato',
-      description: 'Recibe el producto al instante después de tu compra, sin esperas.'
+      description: 'Recibe el producto al instante después de tu compra.'
     },
     {
       title: 'Plataforma Global',

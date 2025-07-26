@@ -11,5 +11,4 @@ import { CommonModule } from '@angular/common';
 })
 export class HotmartTrustCarouselComponent {
   reasons = HOTMART_TRUST_REASONS;
-  // Eliminada lógica de auto-scroll JS. Animación será por CSS.
 }

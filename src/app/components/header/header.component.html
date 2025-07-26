@@ -1,7 +1,7 @@
 <header class="main-header">
   <div class="header-mobile">
     <div class="mobile-left logo-placeholder"></div>
-    <div class="header-title">GaloDev</div>
+    <a routerLink="/" class="header-title">GaloDev</a>
     <button class="sidebar-toggle" (click)="toggleSidebar()" aria-label="Abrir menú">
       <span class="bar"></span>
       <span class="bar"></span>
@@ -9,25 +9,32 @@
     </button>
   </div>
   <div class="header-desktop">
-    <div class="left">GaloDev</div>
-    <div class="center">PROMPTS</div>
-    <div class="right" role="button" tabindex="0" (click)="toggleSidebar()" (keydown.enter)="toggleSidebar()">REDES</div>
+    <a routerLink="/" class="left">GaloDev</a>
+    <a routerLink="/prompts" class="center">PROMPTS</a>
+    <div class="right" role="button" tabindex="0" (click)="toggleSidebar()" (keydown.enter)="toggleSidebar()">MENÚ</div>
   </div>
   
   <div class="sidebar" [class.open]="sidebarOpen" (click)="closeSidebar()">
     <div class="sidebar-content" (click)="$event.stopPropagation()">
       <button class="close-btn" (click)="closeSidebar()" aria-label="Cerrar menú">&times;</button>
-      <h3>Redes sociales</h3>
-      <ul>
-        <li><a href="https://www.instagram.com/galodevcr/?hl=es" target="_blank">Instagram</a></li>
-        <li><a href="https://www.tiktok.com/@galodev" target="_blank">TikTok</a></li>
-        <li><a href="https://www.youtube.com/@GaloDevCR" target="_blank">YouTube</a></li>
-      </ul>
-      <hr>
-      <h4>Próximamente</h4>
-      <ul>
-        <li>Secciones futuras...</li>
-      </ul>
+      
+      <div class="sidebar-section">
+        <h3>Menú</h3>
+        <ul class="nav-links">
+          <li><a routerLink="/" (click)="closeSidebar()">Inicio</a></li>
+          <li><a routerLink="/prompts" (click)="closeSidebar()">Prompts IA</a></li>
+        </ul>
+      </div>
+      
+      <div class="sidebar-section">
+        <h3>Redes Sociales</h3>
+        <ul class="social-links">
+          <li><a href="https://www.instagram.com/galodevcr/?hl=es" target="_blank">Instagram</a></li>
+          <li><a href="https://www.tiktok.com/@galodev" target="_blank">TikTok</a></li>
+          <li><a href="https://www.youtube.com/@GaloDevCR" target="_blank">YouTube</a></li>
+          <li><a href="https://github.com/stevengalocr" target="_blank">GitHub</a></li>
+        </ul>
+      </div>
     </div>
   </div>
 </header>

@@ -1,0 +1,30 @@
+<section class="hero-section">
+  <video autoplay muted muted="muted" loop playsinline class="hero-video">
+    <source src="assets/pages/home/bannerHome.mp4" type="video/mp4">
+    Tu navegador no soporta el video.
+  </video>
+</section>
+
+<!-- About Section -->
+<section class="pack-body">
+  <section class="pack-section" id="pack-section">
+    <div class="pack-content">
+      <h2 id="pack-title">
+        <span class="highlight">Sobre mí</span>
+      </h2>
+      <p class="pack-desc">
+        Soy <strong>Steven Galo</strong>, ingeniero en sistemas y <strong>desarrollador web</strong> especializado en frontend. Me enfoco en construir interfaces modernas, responsivas y funcionales utilizando tecnologías como Angular, TypeScript, HTML y CSS. Tengo experiencia en integración con APIs, diseño UI adaptable, optimización de rendimiento y desarrollo escalable orientado a producto.
+        Mi enfoque es técnico y estratégico: no solo escribo código limpio y mantenible, sino que también entiendo cómo convertir una idea en una experiencia digital efectiva. He trabajado en la creación de dashboards, sitios dinámicos, sistemas modulares y componentes reutilizables, tanto para clientes como en proyectos propios.
+        Actualmente dirijo GaloDev, donde combino programación, diseño visual e inteligencia artificial para crear productos digitales que destacan. También produzco contenido visual con alta calidad técnica, pero mi prioridad como freelancer es el desarrollo web profesional.
+      </p>
+      
+      <!-- Skills Grid -->
+      <div class="skills-grid">
+        <div class="skill-card" *ngFor="let service of services">
+          <h3>{{ service.title }}</h3>
+          <p>{{ service.description }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</section>

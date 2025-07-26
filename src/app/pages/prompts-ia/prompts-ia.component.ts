@@ -15,16 +15,11 @@ import { HotmartTrustCarouselComponent } from "../../components/hotmart-trust-ca
   styleUrls: ['./prompts-ia.component1.scss', './prompts-ia.component2.scss', './prompts-ia.component3.scss'],
 })
 export class PromptsIAComponent implements OnInit, OnDestroy {
-  // Carruseles visuales sin auto-scroll
-
-
   packItems = packItems;
 
   packItemsList1 = this.shufflePackItems();
   packItemsList2 = this.shufflePackItems();
 
-
-  // Devuelve una copia desordenada de packItems
   shufflePackItems() {
     const array = [...packItems];
     for (let i = array.length - 1; i > 0; i--) {
@@ -37,7 +32,6 @@ export class PromptsIAComponent implements OnInit, OnDestroy {
 
   currentIndex = 0;
 
-  // BENEFITS CAROUSEL
   benefits = benefitsItems;
   benefitIndex = 0;
   private benefitInterval: any;
@@ -57,7 +51,7 @@ export class PromptsIAComponent implements OnInit, OnDestroy {
 
   private handleSwipe() {
     const deltaX = this.touchEndX - this.touchStartX;
-    const threshold = 40; // Sensibilidad mínima para swipe
+    const threshold = 40; 
     if (deltaX > threshold) {
       this.prevBenefit();
     } else if (deltaX < -threshold) {
@@ -66,7 +60,6 @@ export class PromptsIAComponent implements OnInit, OnDestroy {
   }
 
   getTransform() {
-    // Centra la card activa, muestra peek a los lados
     return `translateX(-${this.currentIndex * 100}%)`;
   }
 
@@ -87,8 +80,6 @@ export class PromptsIAComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {}
-
-
 
   ngOnDestroy(): void {
     if (this.benefitInterval) {
