@@ -9,40 +9,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule]
 })
-export class HotmartTrustCarouselComponent implements AfterViewInit, OnDestroy {
-  private autoAdvanceInterval: any;
+export class HotmartTrustCarouselComponent {
   reasons = HOTMART_TRUST_REASONS;
-  current = 0;
-  @ViewChild('carouselList', { static: false }) carouselList!: ElementRef<HTMLUListElement>;
-
-  ngAfterViewInit() {
-    // Animación continua, compatible iOS
-    this.autoAdvanceInterval = setInterval(() => {
-      if (!this.carouselList || !this.carouselList.nativeElement) return;
-      const el = this.carouselList.nativeElement;
-      el.scrollLeft += 1;
-      if (el.scrollLeft >= el.scrollWidth - el.clientWidth) {
-        el.scrollLeft = 0;
-      }
-    }, 20);
-  }
-
-  ngOnDestroy() {
-    if (this.autoAdvanceInterval) {
-      clearInterval(this.autoAdvanceInterval);
-    }
-  }
-
-  scrollToCurrent() {
-    if (!this.carouselList) return;
-    const el = this.carouselList.nativeElement;
-    const itemWidth = el.querySelector('.carousel-item')?.clientWidth || 0;
-    try {
-  el.scroll({ left: this.current * itemWidth, behavior: 'smooth' });
-} catch {
-  el.scrollLeft = this.current * itemWidth;
-}
-  }
-
-
+  // Eliminada lógica de auto-scroll JS. Animación será por CSS.
 }

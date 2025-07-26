@@ -2,22 +2,23 @@
   <h2 id="pack-title">
     <span class="highlight">Preguntas frecuentes</span>
   </h2>
-  <ul class="trust-carousel" #carouselList role="list">
-    <ng-container *ngFor="let repeat of [0, 1]">
-      <li
-      class="carousel-item"
-      role="listitem"
-      *ngFor="let reason of reasons"
-      >
-      <div class="trust-badge">
-        {{ reason.title }}
-      </div>
-      <div class="carousel-icon">
-      </div>
-      <div class="carousel-title">{{ reason.description }}</div>
-      <div class="microtrust-text">Protegido por Hotmart &amp; cifrado SSL</div>
-    </li>
-  </ng-container>
-</ul>
-
+  <div class="trust-carousel-viewport" style="overflow: hidden; width: 100vw;">
+    <ul class="trust-carousel" #carouselList role="list">
+      <ng-container *ngFor="let repeat of [0, 1]">
+        <li
+          class="carousel-item"
+          role="listitem"
+          *ngFor="let reason of reasons"
+        >
+          <div class="trust-badge">
+            {{ reason.title }}
+          </div>
+          <div class="carousel-icon">
+          </div>
+          <div class="carousel-title">{{ reason.description }}</div>
+          <div class="microtrust-text">Protegido por Hotmart &amp; cifrado SSL</div>
+        </li>
+      </ng-container>
+    </ul>
+  </div>
 </div>
